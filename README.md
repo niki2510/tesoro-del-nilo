@@ -28,9 +28,21 @@ También incluye [`diploma-faraon.html`](diploma-faraon.html): una versión inde
 
 ![Alfabeto Sagrado](screenshots/03-alfabeto-sagrado.png)
 
+**Cámara III · Cámara de Palabras** — escribe una palabra latina y ve su transcripción jeroglífica letra a letra:
+
+![Cámara de Palabras](screenshots/04-camara-palabras.png)
+
+**Cámara IV · Números Sagrados del Nilo** — el sistema numérico egipcio (aditivo, sin cero, sin posición) y un conversor moderno → egipcio en vivo:
+
+![Números Sagrados del Nilo](screenshots/05-numeros-sagrados.png)
+
+**Cámara V · Sala de Cálculos** — operaciones básicas (suma, resta, multiplicación como suma repetida, división como resta repetida) resueltas en notación egipcia:
+
+![Sala de Cálculos](screenshots/06-sala-calculos.png)
+
 **Diploma del Faraón** — el certificado ilustrado final, descargable en PDF:
 
-![Diploma del Faraón](screenshots/04-diploma-faraon.png)
+![Diploma del Faraón](screenshots/07-diploma-faraon.png)
 
 ## 📚 Por qué este juego es útil para aprender
 
