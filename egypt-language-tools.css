@@ -1,0 +1,99 @@
+/* Controles de lectura, traducción y voz. */
+:root {
+  --egypt-text-scale: 1.12;
+  --egypt-glyph-scale: 1.22;
+}
+
+.papyrus p,
+.papyrus li,
+.papyrus label,
+.papyrus input,
+.papyrus button,
+.papyrus [class~="text-[12px]"],
+.papyrus [class~="text-[13px]"],
+.papyrus [class~="text-[14px]"] {
+  font-size: calc(17px * var(--egypt-text-scale)) !important;
+  line-height: 1.62 !important;
+}
+
+.papyrus h2 { font-size: calc(29px * var(--egypt-text-scale)) !important; }
+.papyrus h3 { font-size: calc(21px * var(--egypt-text-scale)) !important; }
+.glyph-tile .glyph-big { font-size: calc(64px * var(--egypt-glyph-scale)) !important; }
+.glyph-tile { min-height: calc(190px * var(--egypt-glyph-scale)) !important; }
+.egypt-glyph-card > span:first-child { font-size: calc(68px * var(--egypt-glyph-scale)) !important; }
+.egypt-inline-glyphs { font-size: calc(44px * var(--egypt-glyph-scale)); line-height: 1.25; }
+
+.egypt-translation {
+  margin-top: 14px;
+  padding: 18px;
+  border: 2px solid #c99c3d;
+  border-radius: 14px;
+  background: linear-gradient(135deg,#fff7da,#f3dfaa);
+  color: #241507;
+  box-shadow: 0 5px 18px rgba(82,48,9,.12);
+}
+.egypt-translation.not-found { border-color: #b77b43; background: #fff3df; }
+.egypt-translation-title { color:#74500f; font:700 15px/1.3 "Cinzel",serif; letter-spacing:.08em; }
+.egypt-translation-row { display:flex; align-items:center; gap:18px; margin-top:10px; flex-wrap:wrap; }
+.egypt-translation-glyphs { font-size:calc(62px * var(--egypt-glyph-scale)); line-height:1.05; min-width:80px; }
+.egypt-translation-word { font:700 calc(24px * var(--egypt-text-scale))/1.25 "Cinzel",serif; }
+.egypt-translation-meaning { margin-top:4px; font-size:calc(17px * var(--egypt-text-scale)); }
+.egypt-translation-note { margin-top:9px; font-size:calc(15px * var(--egypt-text-scale)); color:#66471c; }
+.egypt-transcription-label { margin-top:18px; color:#75531b; font-weight:700; font-size:calc(15px * var(--egypt-text-scale)); }
+/* Una traducción del diccionario sustituye a la adaptación moderna letra por letra. */
+.egypt-translation:not(.not-found) ~ * { display:none !important; }
+/* Retira la antigua nota con el ejemplo NILO convertido letra por letra. */
+div:has(> .egypt-translation-title) + .mt-3 { display:none !important; }
+
+#egypt-settings-open {
+  position:fixed; right:16px; bottom:82px; z-index:72; min-height:48px; padding:11px 17px;
+  border:1px solid rgba(216,184,106,.55); border-radius:999px; color:#fff8e6;
+  background:linear-gradient(180deg,#2a1d0f,#0e0a06); box-shadow:0 8px 24px -8px #000,0 0 14px rgba(216,184,106,.25);
+  font:700 16px/1 "Cinzel",serif; cursor:pointer;
+}
+#egypt-settings-modal { display:none; position:fixed; inset:0; z-index:100; padding:20px; overflow:auto; background:rgba(5,3,1,.86); backdrop-filter:blur(5px); }
+#egypt-settings-modal.open { display:grid; place-items:center; }
+.egypt-settings-card { width:min(720px,100%); max-height:calc(100vh - 40px); overflow:auto; color:#2b1d0e; background:#fff8e6; border:2px solid #d8b86a; border-radius:20px; box-shadow:0 24px 80px #000; }
+.egypt-settings-head { display:flex; justify-content:space-between; gap:16px; align-items:center; padding:20px 22px; color:#fff8e6; background:#170e07; border-bottom:1px solid #d8b86a; }
+.egypt-settings-head h2 { margin:0; font:700 26px/1.2 "Cinzel",serif; }
+#egypt-settings-close { width:46px; height:46px; border-radius:50%; border:1px solid #d8b86a; color:#fff8e6; background:#35200d; font-size:25px; cursor:pointer; }
+.egypt-settings-tabs { display:flex; gap:8px; padding:14px 18px 0; border-bottom:1px solid #dac48b; }
+.egypt-settings-tab { padding:11px 16px; border:1px solid #c9a557; border-bottom:0; border-radius:10px 10px 0 0; background:#ead9ad; color:#35220d; font:700 15px "Cinzel",serif; }
+.egypt-settings-tab.active { color:#fff1c3; background:#35220d; }
+.egypt-settings-pane { display:none; padding:22px; }.egypt-settings-pane.active { display:block; }
+.egypt-setting { display:grid; grid-template-columns:minmax(180px,.8fr) minmax(220px,1.2fr); gap:12px 18px; align-items:center; margin-bottom:18px; }
+.egypt-setting label { font-size:18px; font-weight:700; }.egypt-setting small { display:block; margin-top:4px; color:#69583d; font-size:14px; font-weight:400; }
+.egypt-setting select,.egypt-setting input[type="range"] { width:100%; min-height:46px; padding:8px 10px; border:2px solid #b89342; border-radius:10px; color:#241507; background:white; font-size:17px; }
+.egypt-settings-note { padding:14px; border-left:5px solid #b58a2f; border-radius:8px; color:#4c3517; background:#f3e4bd; font-size:16px; line-height:1.55; }
+.egypt-voice-status { margin:-4px 0 16px; padding:12px 14px; border-radius:10px; font-size:15px; line-height:1.5; }
+.egypt-voice-status.available { color:#174d28; background:#dff3e3; border:1px solid #79ae83; }
+.egypt-voice-status.missing { color:#703410; background:#fff0d5; border:1px solid #d39a4f; }
+.egypt-voice-actions { display:flex; flex-wrap:wrap; gap:10px; margin:-5px 0 20px; }
+.egypt-voice-actions a,.egypt-voice-actions button { min-height:42px; padding:9px 13px; border:1px solid #b89342; border-radius:9px; color:#35220d; background:#fffaf0; font:700 14px "Cinzel",serif; text-decoration:none; cursor:pointer; }
+#egypt-voice-test { min-height:48px; padding:11px 18px; border:1px solid #d8b86a; border-radius:10px; color:#ffe7a0; background:#171006; font:700 16px "Cinzel",serif; }
+
+#egypt-voice-permission { display:none; position:fixed; inset:0; z-index:120; padding:20px; background:rgba(5,3,1,.9); backdrop-filter:blur(6px); }
+#egypt-voice-permission.open { display:grid; place-items:center; }
+.egypt-permission-card { width:min(560px,100%); padding:26px; color:#2b1d0e; background:#fff8e6; border:2px solid #d8b86a; border-radius:20px; box-shadow:0 24px 80px #000; font-size:17px; line-height:1.55; }
+.egypt-permission-card h2 { margin:8px 0 14px; font:700 25px/1.25 "Cinzel",serif; }
+.egypt-permission-card p { margin:10px 0; }
+.egypt-permission-icon { font-size:38px; }
+.egypt-permission-warning { padding:13px 15px; color:#762d12; background:#ffe5cd; border:1px solid #d98b55; border-radius:10px; }
+.egypt-permission-actions { display:flex; justify-content:flex-end; flex-wrap:wrap; gap:10px; margin-top:22px; }
+.egypt-permission-actions button { min-height:46px; padding:10px 16px; border:1px solid #a27c34; border-radius:10px; color:#35220d; background:#fffaf0; font:700 14px "Cinzel",serif; cursor:pointer; }
+#egypt-voice-allow { color:#ffe7a0; background:#171006; }
+
+#egypt-free-math { position:fixed; left:16px; bottom:16px; z-index:72; min-height:46px; display:flex; align-items:center; padding:10px 16px; border:1px solid rgba(216,184,106,.55); border-radius:999px; color:#fff8e6; background:linear-gradient(180deg,#2a1d0f,#0e0a06); box-shadow:0 8px 24px -8px #000; font:700 14px/1 "Cinzel",serif; text-decoration:none; }
+.egypt-math-gated { cursor:not-allowed !important; filter:grayscale(.65); opacity:.58 !important; }
+.egypt-answer-held { position:relative; outline:2px solid #4f945e; outline-offset:2px; background:#e6f5df !important; }
+.egypt-answer-held::after { content:attr(data-held-label); display:block; margin-top:10px; padding:7px 9px; color:#174d28; background:#d7eed8; border:1px solid #79ae83; border-radius:8px; font-weight:700; font-size:13px; }
+#egypt-math-lock-message { position:fixed; left:50%; bottom:84px; z-index:130; width:min(620px,calc(100% - 32px)); padding:14px 18px; color:#fff4d2; background:#32170d; border:1px solid #d8b86a; border-radius:12px; box-shadow:0 12px 35px #000; font-size:16px; line-height:1.45; text-align:center; opacity:0; pointer-events:none; transform:translate(-50%,14px); transition:.2s ease; }
+#egypt-math-lock-message.show { opacity:1; transform:translate(-50%,0); }
+
+@media (max-width:600px) {
+  #egypt-settings-open { right:8px; bottom:70px; }
+  #egypt-free-math { left:8px; bottom:12px; max-width:52%; font-size:12px; }
+  .egypt-setting { grid-template-columns:1fr; }
+  .egypt-settings-tabs { overflow-x:auto; }
+  .papyrus p,.papyrus li,.papyrus label,.papyrus input,.papyrus button { font-size:calc(16px * var(--egypt-text-scale)) !important; }
+}

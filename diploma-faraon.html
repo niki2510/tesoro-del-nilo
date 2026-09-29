@@ -18,9 +18,9 @@ const first=document.getElementById('first'),last=document.getElementById('last'
   ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillStyle='#21170c';
   fitText(full,795,58);ctx.fillText(full,768,459);
   const normal=new Intl.DateTimeFormat('es-ES',{day:'numeric',month:'long',year:'numeric',timeZone:'UTC'}).format(new Date(utc(date.value)));
-  ctx.fillStyle='rgba(238,204,153,.90)';ctx.fillRect(630,774,500,46);ctx.fillRect(630,818,500,34);
-  ctx.fillStyle='#25190e';fitText(normal,430,40);ctx.fillText(normal,875,798);
-  ctx.font='24px Georgia, serif';ctx.fillText(egyptian(date.value),890,835);
+  ctx.fillStyle='rgba(238,204,153,.90)';ctx.fillRect(660,774,470,46);ctx.fillRect(660,818,470,34);
+  ctx.fillStyle='#25190e';fitText(normal,430,40);ctx.fillText(normal,895,798);
+  ctx.font='24px Georgia, serif';ctx.fillText(egyptian(date.value),895,835);
   const jpg=atob(c.toDataURL('image/jpeg',.95).split(',')[1]);
   const bytes=new Uint8Array(jpg.length);for(let i=0;i<jpg.length;i++)bytes[i]=jpg.charCodeAt(i);
   const enc=new TextEncoder(),parts=[],offsets=[0],length={value:0};
@@ -37,4 +37,4 @@ const first=document.getElementById('first'),last=document.getElementById('last'
  }catch(err){alert('No se pudo generar el PDF: '+err.message)}finally{button.disabled=false;button.textContent='Generar diploma PDF'}
 }
 document.getElementById('print').onclick=makePdf;update();
-</script><style>@media screen{.modern{left:41%;width:33%;box-sizing:border-box;padding-right:4px;font:700 clamp(13px,2.3vw,33px) "Arial Narrow",Arial,sans-serif}.egypt{left:39%;width:35%;font-size:clamp(10px,1.35vw,19px);letter-spacing:-.25px}}</style></body></html>
+</script><style>@media screen{.modern{left:43.6%;width:30%;box-sizing:border-box;font:700 clamp(12px,2.2vw,31px) "Arial Narrow",Arial,sans-serif}.egypt{left:43.6%;width:30%;font-size:clamp(10px,1.35vw,19px);letter-spacing:-.25px}}</style></body></html>

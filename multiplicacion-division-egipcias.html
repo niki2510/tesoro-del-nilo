@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Multiplicación y división del Antiguo Egipto</title>
+<style>
+  :root{
+    --gold:#d8b86a; --gold-light:#f1ce72; --gold-soft:#ffe9a8;
+    --ink:#0e0a06; --ink2:#1a130c; --ink3:#2b1d0e;
+    --cream:#fff8e6; --brown:#7c5a1e; --red:#a33; --red-light:#ff7a7a;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; min-height:100vh; color:var(--cream);
+    background:radial-gradient(ellipse at top,#241708 0%,var(--ink) 70%);
+    font-family:Inter,ui-sans-serif,system-ui,-apple-system,sans-serif;
+    padding:24px 16px 64px;
+  }
+  .wrap{max-width:880px;margin:0 auto}
+  h1{
+    font-size:clamp(1.5rem,4vw,2.1rem); text-align:center; margin:4px 0 4px;
+    color:var(--gold-light); text-shadow:0 0 18px rgba(216,184,106,.35);
+  }
+  .subtitle{text-align:center;color:var(--gold);opacity:.85;margin:0 0 28px;font-size:.95rem}
+  section{
+    background:linear-gradient(180deg,var(--ink3),var(--ink2));
+    border:1px solid var(--brown); border-radius:14px;
+    padding:20px 20px 24px; margin:0 0 22px;
+    box-shadow:0 6px 18px rgba(0,0,0,.35);
+  }
+  h2{
+    color:var(--gold-light); font-size:1.25rem; margin:0 0 6px;
+    display:flex; align-items:center; gap:10px;
+  }
+  h2 .glyph{font-size:1.4rem}
+  p{line-height:1.55; color:var(--cream); opacity:.92}
+  .explain{
+    background:rgba(216,184,106,.08); border-left:3px solid var(--gold);
+    padding:10px 14px; border-radius:0 8px 8px 0; margin:10px 0 16px; font-size:.94rem;
+  }
+  table.duplication{
+    width:100%; border-collapse:collapse; margin:10px 0 14px; font-size:.95rem;
+  }
+  table.duplication th, table.duplication td{
+    border:1px solid var(--brown); padding:8px 10px; text-align:center;
+  }
+  table.duplication th{background:rgba(216,184,106,.15); color:var(--gold-light)}
+  table.duplication tr.marked td{background:rgba(216,184,106,.22); font-weight:600}
+  table.duplication td.hier{font-size:1.15rem; color:var(--gold)}
+  .result-line{
+    margin-top:10px; padding:10px 14px; border-radius:8px;
+    background:rgba(163,51,51,.12); border:1px solid var(--red);
+    font-size:.98rem;
+  }
+  .result-line b{color:var(--gold-light)}
+  .compare{
+    display:flex; gap:14px; flex-wrap:wrap; margin-top:10px;
+  }
+  .compare .card{
+    flex:1 1 200px; background:rgba(0,0,0,.25); border:1px solid var(--brown);
+    border-radius:8px; padding:10px 12px; font-size:.9rem;
+  }
+  .compare .card b{display:block; color:var(--gold-light); margin-bottom:4px}
+  .practice-box{
+    background:rgba(0,0,0,.25); border:1px dashed var(--gold);
+    border-radius:10px; padding:16px; margin-top:14px;
+  }
+  .op-display{font-size:1.5rem; text-align:center; color:var(--gold-light); margin:6px 0 14px}
+  .btn-row{display:flex; gap:10px; flex-wrap:wrap; justify-content:center; margin:10px 0}
+  button{
+    background:linear-gradient(180deg,var(--gold-light),var(--gold));
+    color:var(--ink); border:none; border-radius:8px; padding:9px 16px;
+    font-weight:700; font-size:.92rem; cursor:pointer; transition:transform .12s;
+  }
+  button:hover{transform:translateY(-1px)}
+  button.secondary{background:transparent;border:1px solid var(--gold);color:var(--gold-light)}
+  .steps-area{margin-top:14px}
+  .hidden{display:none}
+  input[type=number]{
+    background:rgba(255,255,255,.06); border:1px solid var(--brown); color:var(--cream);
+    border-radius:8px; padding:8px 10px; font-size:1rem; width:120px; text-align:center;
+  }
+  .answer-row{display:flex; gap:10px; align-items:center; justify-content:center; margin-top:12px; flex-wrap:wrap}
+  .feedback{text-align:center; margin-top:10px; font-weight:700; min-height:1.3em}
+  .feedback.ok{color:#8ee29a}
+  .feedback.bad{color:var(--red-light)}
+  .legend{font-size:.82rem; opacity:.75; margin-top:6px}
+  footer{text-align:center; opacity:.6; font-size:.82rem; margin-top:30px}
+  a{color:var(--gold-light)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>𓎆𓏺 Multiplicación y división del Antiguo Egipto 𓏺𓎆</h1>
+  <p class="subtitle">El método de la duplicación (𒐕 doblar una y otra vez) — resuelto paso a paso y comparado con el cálculo moderno</p>
+
+  <!-- ================= MULTIPLICACIÓN: EXPLICACIÓN ================= -->
+  <section>
+    <h2><span class="glyph">✖️</span> Cómo multiplicaban los egipcios</h2>
+    <p>Los escribas egipcios no memorizaban tablas de multiplicar como hoy. En su lugar usaban un truco muy elegante: <b>la duplicación</b>. Solo necesitaban saber sumar y doblar (multiplicar por 2) para poder multiplicar dos números cualesquiera.</p>
+    <div class="explain">
+      <b>Pasos del método:</b>
+      <ol>
+        <li>Se abren dos columnas. La izquierda empieza en <b>1</b>, la derecha empieza en el primer número (el que se va a duplicar).</li>
+        <li>Cada fila se obtiene <b>doblando</b> la fila anterior (×2 en ambas columnas), hasta que el valor de la izquierda ya no pueda usarse sin pasarse del segundo número.</li>
+        <li>Se buscan las filas de la izquierda que, sumadas, dan exactamente el segundo número (esto es simplemente escribir ese número en base 2).</li>
+        <li>Se suman los valores de la <b>derecha</b> de esas filas marcadas: ese es el resultado.</li>
+      </ol>
+    </div>
+
+    <h3 style="color:var(--gold-light);margin:18px 0 4px">Ejemplo resuelto: 13 × 12</h3>
+    <table class="duplication">
+      <thead><tr><th>Izquierda</th><th>Derecha (13 duplicado)</th><th>¿Se usa?</th></tr></thead>
+      <tbody>
+        <tr class="marked"><td>1</td><td>13</td><td>✔ (parte de 12)</td></tr>
+        <tr><td>2</td><td>26</td><td>—</td></tr>
+        <tr class="marked"><td>4</td><td>52</td><td>✔ (parte de 12)</td></tr>
+        <tr class="marked"><td>8</td><td>104</td><td>✔ (parte de 12)</td></tr>
+      </tbody>
+    </table>
+    <div class="result-line">
+      12 = 8 + 4 &nbsp;&nbsp;→&nbsp;&nbsp; sumamos las filas marcadas: 104 + 52 = <b>156</b><br>
+      <span class="legend">Nota: aquí se usaron las filas 8 y 4 (que suman 12), no la fila 1 — cada problema usa la combinación de filas que sea necesaria.</span>
+    </div>
+    <div class="compare">
+      <div class="card"><b>Método egipcio</b>104 + 52 = 156</div>
+      <div class="card"><b>Cálculo moderno</b>13 × 12 = 156</div>
+    </div>
+  </section>
+
+  <!-- ================= DIVISIÓN: EXPLICACIÓN ================= -->
+  <section>
+    <h2><span class="glyph">➗</span> Cómo dividían los egipcios</h2>
+    <p>La división egipcia es la misma idea de la duplicación, pero <b>al revés</b>: en vez de duplicar el número que se multiplica, se duplica el <b>divisor</b>, y se busca qué combinación de esas duplicaciones reconstruye el dividendo.</p>
+    <div class="explain">
+      <b>Pasos del método:</b>
+      <ol>
+        <li>Se abren dos columnas. La izquierda empieza en <b>1</b>, la derecha empieza en el <b>divisor</b>.</li>
+        <li>Se duplican ambas columnas fila a fila hasta que el valor de la derecha esté a punto de superar el <b>dividendo</b>.</li>
+        <li>Se buscan las filas de la derecha que, sumadas, dan exactamente el dividendo.</li>
+        <li>Se suman los valores de la <b>izquierda</b> de esas filas marcadas: ese es el cociente (el resultado de la división).</li>
+      </ol>
+    </div>
+
+    <h3 style="color:var(--gold-light);margin:18px 0 4px">Ejemplo resuelto: 184 ÷ 8</h3>
+    <table class="duplication">
+      <thead><tr><th>Izquierda</th><th>Derecha (8 duplicado)</th><th>¿Se usa?</th></tr></thead>
+      <tbody>
+        <tr class="marked"><td>1</td><td>8</td><td>✔ (parte de 184)</td></tr>
+        <tr><td>2</td><td>16</td><td>—</td></tr>
+        <tr class="marked"><td>4</td><td>32</td><td>✔ (parte de 184)</td></tr>
+        <tr><td>8</td><td>64</td><td>—</td></tr>
+        <tr class="marked"><td>16</td><td>128</td><td>✔ (parte de 184)</td></tr>
+      </tbody>
+    </table>
+    <div class="result-line">
+      184 = 128 + 32 + 8 &nbsp;&nbsp;→&nbsp;&nbsp; sumamos las filas de la izquierda: 16 + 4 + 1 = <b>23</b><br>
+      <span class="legend">Comprobación: 23 × 8 = 184 ✔</span>
+    </div>
+    <div class="compare">
+      <div class="card"><b>Método egipcio</b>16 + 4 + 1 = 23</div>
+      <div class="card"><b>Cálculo moderno</b>184 ÷ 8 = 23</div>
+    </div>
+  </section>
+
+  <!-- ================= PRÁCTICA: MULTIPLICACIÓN ================= -->
+  <section>
+    <h2><span class="glyph">📜</span> Practica: multiplicación egipcia</h2>
+    <p>Pulsa «Nuevo problema», intenta resolverlo tú mismo con papel y lápiz usando el método de duplicación, y comprueba tu respuesta. Luego pulsa «Ver pasos» para ver la tabla completa y compararla con el cálculo moderno.</p>
+    <div class="practice-box">
+      <div class="op-display" id="mulDisplay">? × ?</div>
+      <div class="answer-row">
+        <label for="mulAnswer">Tu resultado:</label>
+        <input type="number" id="mulAnswer" placeholder="—">
+        <button onclick="checkMul()">Comprobar</button>
+      </div>
+      <div class="feedback" id="mulFeedback"></div>
+      <div class="btn-row">
+        <button class="secondary" onclick="newMul()">🔄 Nuevo problema</button>
+        <button class="secondary" onclick="revealMul()">👁 Ver pasos egipcios</button>
+      </div>
+      <div class="steps-area hidden" id="mulSteps"></div>
+    </div>
+  </section>
+
+  <!-- ================= PRÁCTICA: DIVISIÓN ================= -->
+  <section>
+    <h2><span class="glyph">📜</span> Practica: división egipcia</h2>
+    <p>Estos problemas siempre tienen un resultado exacto (sin resto), tal como los resolvían los escribas. Intenta resolverlo con duplicaciones antes de comprobar.</p>
+    <div class="practice-box">
+      <div class="op-display" id="divDisplay">? ÷ ?</div>
+      <div class="answer-row">
+        <label for="divAnswer">Tu resultado:</label>
+        <input type="number" id="divAnswer" placeholder="—">
+        <button onclick="checkDiv()">Comprobar</button>
+      </div>
+      <div class="feedback" id="divFeedback"></div>
+      <div class="btn-row">
+        <button class="secondary" onclick="newDiv()">🔄 Nuevo problema</button>
+        <button class="secondary" onclick="revealDiv()">👁 Ver pasos egipcios</button>
+      </div>
+      <div class="steps-area hidden" id="divSteps"></div>
+    </div>
+  </section>
+
+  <footer>Tesoro del Nilo · Cámara de cálculos · <a href="DOC-20260925-WA0002.htm">Volver a la aventura principal</a></footer>
+</div>
+
+<script>
+// ---- utilidades de duplicación egipcia ----
+function buildMultiplication(a, b) {
+  // a: se duplica; b: se descompone en potencias de 2
+  const rows = [];
+  let left = 1, right = a;
+  while (left <= b) {
+    rows.push({ left, right });
+    left *= 2; right *= 2;
+  }
+  // elegir filas (empezando por la mayor) cuya suma de "left" dé b
+  let remaining = b;
+  const marked = [];
+  for (let i = rows.length - 1; i >= 0; i--) {
+    if (rows[i].left <= remaining) {
+      marked.push(rows[i]);
+      remaining -= rows[i].left;
+    }
+  }
+  marked.sort((x, y) => x.left - y.left);
+  const total = marked.reduce((s, r) => s + r.right, 0);
+  return { rows, marked, total };
+}
+
+function buildDivision(dividend, divisor) {
+  // divisor: se duplica; dividend: se descompone usando la columna derecha
+  const rows = [];
+  let left = 1, right = divisor;
+  while (right <= dividend) {
+    rows.push({ left, right });
+    left *= 2; right *= 2;
+  }
+  let remaining = dividend;
+  const marked = [];
+  for (let i = rows.length - 1; i >= 0; i--) {
+    if (rows[i].right <= remaining) {
+      marked.push(rows[i]);
+      remaining -= rows[i].right;
+    }
+  }
+  marked.sort((x, y) => x.left - y.left);
+  const total = marked.reduce((s, r) => s + r.left, 0);
+  return { rows, marked, total, remainder: remaining };
+}
+
+function renderTable(rows, marked, leftLabel, rightLabel) {
+  const markedSet = new Set(marked.map(r => r.left));
+  let html = '<table class="duplication"><thead><tr><th>' + leftLabel + '</th><th>' + rightLabel + '</th><th>¿Se usa?</th></tr></thead><tbody>';
+  for (const r of rows) {
+    const isMarked = markedSet.has(r.left);
+    html += '<tr' + (isMarked ? ' class="marked"' : '') + '><td>' + r.left + '</td><td>' + r.right + '</td><td>' + (isMarked ? '✔' : '—') + '</td></tr>';
+  }
+  html += '</tbody></table>';
+  return html;
+}
+
+// ---- MULTIPLICACIÓN ----
+let mulA, mulB, mulResult, mulData;
+function newMul() {
+  mulA = Math.floor(Math.random() * 13) + 3;   // 3..15
+  mulB = Math.floor(Math.random() * 17) + 3;   // 3..19
+  mulResult = mulA * mulB;
+  mulData = buildMultiplication(mulA, mulB);
+  document.getElementById('mulDisplay').textContent = mulA + ' × ' + mulB;
+  document.getElementById('mulAnswer').value = '';
+  document.getElementById('mulFeedback').textContent = '';
+  document.getElementById('mulFeedback').className = 'feedback';
+  document.getElementById('mulSteps').classList.add('hidden');
+  document.getElementById('mulSteps').innerHTML = '';
+}
+function checkMul() {
+  const val = Number(document.getElementById('mulAnswer').value);
+  const fb = document.getElementById('mulFeedback');
+  if (val === mulResult) {
+    fb.textContent = '¡Correcto! ' + mulA + ' × ' + mulB + ' = ' + mulResult;
+    fb.className = 'feedback ok';
+  } else {
+    fb.textContent = 'Todavía no. Pulsa "Ver pasos egipcios" si quieres una pista.';
+    fb.className = 'feedback bad';
+  }
+}
+function revealMul() {
+  const area = document.getElementById('mulSteps');
+  const sumLeft = mulData.marked.map(r => r.left).join(' + ');
+  const sumRight = mulData.marked.map(r => r.right).join(' + ');
+  area.innerHTML =
+    renderTable(mulData.rows, mulData.marked, 'Izquierda', 'Derecha (' + mulA + ' duplicado)') +
+    '<div class="result-line">' + mulB + ' = ' + sumLeft + ' &nbsp;→&nbsp; sumamos la derecha: ' + sumRight + ' = <b>' + mulData.total + '</b></div>' +
+    '<div class="compare">' +
+      '<div class="card"><b>Método egipcio</b>' + sumRight + ' = ' + mulData.total + '</div>' +
+      '<div class="card"><b>Cálculo moderno</b>' + mulA + ' × ' + mulB + ' = ' + mulResult + '</div>' +
+    '</div>';
+  area.classList.remove('hidden');
+}
+
+// ---- DIVISIÓN ----
+let divDividend, divDivisor, divResult, divData;
+function newDiv() {
+  divDivisor = Math.floor(Math.random() * 11) + 2;  // 2..12
+  const quotient = Math.floor(Math.random() * 18) + 3; // 3..20
+  divDividend = divDivisor * quotient;
+  divResult = quotient;
+  divData = buildDivision(divDividend, divDivisor);
+  document.getElementById('divDisplay').textContent = divDividend + ' ÷ ' + divDivisor;
+  document.getElementById('divAnswer').value = '';
+  document.getElementById('divFeedback').textContent = '';
+  document.getElementById('divFeedback').className = 'feedback';
+  document.getElementById('divSteps').classList.add('hidden');
+  document.getElementById('divSteps').innerHTML = '';
+}
+function checkDiv() {
+  const val = Number(document.getElementById('divAnswer').value);
+  const fb = document.getElementById('divFeedback');
+  if (val === divResult) {
+    fb.textContent = '¡Correcto! ' + divDividend + ' ÷ ' + divDivisor + ' = ' + divResult;
+    fb.className = 'feedback ok';
+  } else {
+    fb.textContent = 'Todavía no. Pulsa "Ver pasos egipcios" si quieres una pista.';
+    fb.className = 'feedback bad';
+  }
+}
+function revealDiv() {
+  const area = document.getElementById('divSteps');
+  const sumRight = divData.marked.map(r => r.right).join(' + ');
+  const sumLeft = divData.marked.map(r => r.left).join(' + ');
+  area.innerHTML =
+    renderTable(divData.rows, divData.marked, 'Izquierda', 'Derecha (' + divDivisor + ' duplicado)') +
+    '<div class="result-line">' + divDividend + ' = ' + sumRight + ' &nbsp;→&nbsp; sumamos la izquierda: ' + sumLeft + ' = <b>' + divData.total + '</b></div>' +
+    '<div class="compare">' +
+      '<div class="card"><b>Método egipcio</b>' + sumLeft + ' = ' + divData.total + '</div>' +
+      '<div class="card"><b>Cálculo moderno</b>' + divDividend + ' ÷ ' + divDivisor + ' = ' + divResult + '</div>' +
+    '</div>';
+  area.classList.remove('hidden');
+}
+
+newMul();
+newDiv();
+</script>
+</body>
+</html>
