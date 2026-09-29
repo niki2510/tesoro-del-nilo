@@ -177,8 +177,8 @@
       else {voiceStatus.className="egypt-voice-status missing";voiceStatus.innerHTML="<strong>⚠ Falta la voz Árabe (Egipto).</strong> Sin instalarla no podrás escuchar la pronunciación de las palabras del Antiguo Egipto.";installButton.hidden=false;}
     }
     populateVoices();
-    if("speechSynthesis" in window) window.speechSynthesis.onvoiceschanged=function(){populateVoices();if(voices().length)requestEgyptianVoiceInstall(false);};
-    window.setTimeout(function(){populateVoices();requestEgyptianVoiceInstall(false);},1200);
+    if("speechSynthesis" in window) window.speechSynthesis.onvoiceschanged=populateVoices;
+    window.setTimeout(populateVoices,1200);
   }
 
   function createMathProgressGuard() {
