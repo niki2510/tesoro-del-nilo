@@ -37,4 +37,4 @@ const first=document.getElementById('first'),last=document.getElementById('last'
  }catch(err){alert('No se pudo generar el PDF: '+err.message)}finally{button.disabled=false;button.textContent='Generar diploma PDF'}
 }
 document.getElementById('print').onclick=makePdf;update();
-</script><style>@media screen{.modern{left:43.6%;width:30%;box-sizing:border-box;font:700 clamp(12px,2.2vw,31px) "Arial Narrow",Arial,sans-serif}.egypt{left:43.6%;width:30%;font-size:clamp(10px,1.35vw,19px);letter-spacing:-.25px}}</style></body></html>
+</script><style>@media screen{.modern{left:43.6%;width:30%;box-sizing:border-box;font:700 clamp(12px,2.2vw,31px) "Arial Narrow",Arial,sans-serif}.egypt{left:43.6%;width:30%;font-size:clamp(10px,1.35vw,19px);letter-spacing:-.25px}}@page{size:A4 landscape;margin:0}@media print{html,body{width:297mm!important;height:210mm!important}.frame{width:297mm!important;height:210mm!important;padding:0!important}.diploma{width:297mm!important;height:210mm!important}}</style></body></html>
