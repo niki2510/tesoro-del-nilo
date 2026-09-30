@@ -205,7 +205,7 @@
     }
     function enhance(){
       var root=document.getElementById("root"); if(!root)return;
-      var lang=language(),t=labels[lang]||labels.es; free.textContent=t.free;
+      var lang=language(),t=labels[lang]||labels.es; free.textContent=t.free;free.href="multiplicacion-division-egipcias.html?lang="+lang;
       textReplace(root,"7 + 7 + 7  ( 7 × 3 )","7 × 3");
       textReplace(root,"20 - 5 - 5 - 5 - 5  ( 20 ÷ 5 )","20 ÷ 5");
       textReplace(root," / 3 mínimo"," / 4 obligatorios");

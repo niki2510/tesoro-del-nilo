@@ -88,97 +88,105 @@
   .legend{font-size:.82rem; opacity:.75; margin-top:6px}
   footer{text-align:center; opacity:.6; font-size:.82rem; margin-top:30px}
   a{color:var(--gold-light)}
+  .langbar{position:fixed;top:10px;right:10px;z-index:10;display:flex;gap:6px}
+  .langbar button{padding:6px 10px;font-size:.8rem;background:rgba(14,10,6,.85);border:1px solid var(--gold);color:var(--gold-light)}
+  .langbar button.active{background:linear-gradient(180deg,var(--gold-light),var(--gold));color:var(--ink)}
 </style>
 </head>
 <body>
+<div class="langbar" role="group" aria-label="Language">
+  <button type="button" data-lang="es">ES</button>
+  <button type="button" data-lang="en">EN</button>
+  <button type="button" data-lang="ru">RU</button>
+</div>
 <div class="wrap">
-  <h1>𓎆𓏺 Multiplicación y división del Antiguo Egipto 𓏺𓎆</h1>
-  <p class="subtitle">El método de la duplicación (𒐕 doblar una y otra vez) — resuelto paso a paso y comparado con el cálculo moderno</p>
+  <h1>𓎆𓏺 <span data-i18n="h1"></span> 𓏺𓎆</h1>
+  <p class="subtitle" data-i18n="subtitle"></p>
 
   <!-- ================= MULTIPLICACIÓN: EXPLICACIÓN ================= -->
   <section>
-    <h2><span class="glyph">✖️</span> Cómo multiplicaban los egipcios</h2>
-    <p>Los escribas egipcios no memorizaban tablas de multiplicar como hoy. En su lugar usaban un truco muy elegante: <b>la duplicación</b>. Solo necesitaban saber sumar y doblar (multiplicar por 2) para poder multiplicar dos números cualesquiera.</p>
+    <h2><span class="glyph">✖️</span> <span data-i18n="mulH"></span></h2>
+    <p data-i18n="mulP"></p>
     <div class="explain">
-      <b>Pasos del método:</b>
+      <b data-i18n="stepsTitle"></b>
       <ol>
-        <li>Se abren dos columnas. La izquierda empieza en <b>1</b>, la derecha empieza en el primer número (el que se va a duplicar).</li>
-        <li>Cada fila se obtiene <b>doblando</b> la fila anterior (×2 en ambas columnas), hasta que el valor de la izquierda ya no pueda usarse sin pasarse del segundo número.</li>
-        <li>Se buscan las filas de la izquierda que, sumadas, dan exactamente el segundo número (esto es simplemente escribir ese número en base 2).</li>
-        <li>Se suman los valores de la <b>derecha</b> de esas filas marcadas: ese es el resultado.</li>
+        <li data-i18n="mulS1"></li>
+        <li data-i18n="mulS2"></li>
+        <li data-i18n="mulS3"></li>
+        <li data-i18n="mulS4"></li>
       </ol>
     </div>
 
-    <h3 style="color:var(--gold-light);margin:18px 0 4px">Ejemplo resuelto: 13 × 12</h3>
+    <h3 style="color:var(--gold-light);margin:18px 0 4px" data-i18n="exMul"></h3>
     <table class="duplication">
-      <thead><tr><th>Izquierda</th><th>Derecha (13 duplicado)</th><th>¿Se usa?</th></tr></thead>
+      <thead><tr><th data-i18n="thLeft"></th><th data-i18n="thRight13"></th><th data-i18n="thUsed"></th></tr></thead>
       <tbody>
-        <tr class="marked"><td>1</td><td>13</td><td>✔ (parte de 12)</td></tr>
+        <tr class="marked"><td>1</td><td>13</td><td data-i18n="partOf12"></td></tr>
         <tr><td>2</td><td>26</td><td>—</td></tr>
-        <tr class="marked"><td>4</td><td>52</td><td>✔ (parte de 12)</td></tr>
-        <tr class="marked"><td>8</td><td>104</td><td>✔ (parte de 12)</td></tr>
+        <tr class="marked"><td>4</td><td>52</td><td data-i18n="partOf12"></td></tr>
+        <tr class="marked"><td>8</td><td>104</td><td data-i18n="partOf12"></td></tr>
       </tbody>
     </table>
     <div class="result-line">
-      12 = 8 + 4 &nbsp;&nbsp;→&nbsp;&nbsp; sumamos las filas marcadas: 104 + 52 = <b>156</b><br>
-      <span class="legend">Nota: aquí se usaron las filas 8 y 4 (que suman 12), no la fila 1 — cada problema usa la combinación de filas que sea necesaria.</span>
+      <span data-i18n="mulResLine"></span><br>
+      <span class="legend" data-i18n="mulNote"></span>
     </div>
     <div class="compare">
-      <div class="card"><b>Método egipcio</b>104 + 52 = 156</div>
-      <div class="card"><b>Cálculo moderno</b>13 × 12 = 156</div>
+      <div class="card"><b data-i18n="egMethod"></b>104 + 52 = 156</div>
+      <div class="card"><b data-i18n="modern"></b>13 × 12 = 156</div>
     </div>
   </section>
 
   <!-- ================= DIVISIÓN: EXPLICACIÓN ================= -->
   <section>
-    <h2><span class="glyph">➗</span> Cómo dividían los egipcios</h2>
-    <p>La división egipcia es la misma idea de la duplicación, pero <b>al revés</b>: en vez de duplicar el número que se multiplica, se duplica el <b>divisor</b>, y se busca qué combinación de esas duplicaciones reconstruye el dividendo.</p>
+    <h2><span class="glyph">➗</span> <span data-i18n="divH"></span></h2>
+    <p data-i18n="divP"></p>
     <div class="explain">
-      <b>Pasos del método:</b>
+      <b data-i18n="stepsTitle"></b>
       <ol>
-        <li>Se abren dos columnas. La izquierda empieza en <b>1</b>, la derecha empieza en el <b>divisor</b>.</li>
-        <li>Se duplican ambas columnas fila a fila hasta que el valor de la derecha esté a punto de superar el <b>dividendo</b>.</li>
-        <li>Se buscan las filas de la derecha que, sumadas, dan exactamente el dividendo.</li>
-        <li>Se suman los valores de la <b>izquierda</b> de esas filas marcadas: ese es el cociente (el resultado de la división).</li>
+        <li data-i18n="divS1"></li>
+        <li data-i18n="divS2"></li>
+        <li data-i18n="divS3"></li>
+        <li data-i18n="divS4"></li>
       </ol>
     </div>
 
-    <h3 style="color:var(--gold-light);margin:18px 0 4px">Ejemplo resuelto: 184 ÷ 8</h3>
+    <h3 style="color:var(--gold-light);margin:18px 0 4px" data-i18n="exDiv"></h3>
     <table class="duplication">
-      <thead><tr><th>Izquierda</th><th>Derecha (8 duplicado)</th><th>¿Se usa?</th></tr></thead>
+      <thead><tr><th data-i18n="thLeft"></th><th data-i18n="thRight8"></th><th data-i18n="thUsed"></th></tr></thead>
       <tbody>
-        <tr class="marked"><td>1</td><td>8</td><td>✔ (parte de 184)</td></tr>
+        <tr class="marked"><td>1</td><td>8</td><td data-i18n="partOf184"></td></tr>
         <tr><td>2</td><td>16</td><td>—</td></tr>
-        <tr class="marked"><td>4</td><td>32</td><td>✔ (parte de 184)</td></tr>
+        <tr class="marked"><td>4</td><td>32</td><td data-i18n="partOf184"></td></tr>
         <tr><td>8</td><td>64</td><td>—</td></tr>
-        <tr class="marked"><td>16</td><td>128</td><td>✔ (parte de 184)</td></tr>
+        <tr class="marked"><td>16</td><td>128</td><td data-i18n="partOf184"></td></tr>
       </tbody>
     </table>
     <div class="result-line">
-      184 = 128 + 32 + 8 &nbsp;&nbsp;→&nbsp;&nbsp; sumamos las filas de la izquierda: 16 + 4 + 1 = <b>23</b><br>
-      <span class="legend">Comprobación: 23 × 8 = 184 ✔</span>
+      <span data-i18n="divResLine"></span><br>
+      <span class="legend" data-i18n="divCheck"></span>
     </div>
     <div class="compare">
-      <div class="card"><b>Método egipcio</b>16 + 4 + 1 = 23</div>
-      <div class="card"><b>Cálculo moderno</b>184 ÷ 8 = 23</div>
+      <div class="card"><b data-i18n="egMethod"></b>16 + 4 + 1 = 23</div>
+      <div class="card"><b data-i18n="modern"></b>184 ÷ 8 = 23</div>
     </div>
   </section>
 
   <!-- ================= PRÁCTICA: MULTIPLICACIÓN ================= -->
   <section>
-    <h2><span class="glyph">📜</span> Practica: multiplicación egipcia</h2>
-    <p>Pulsa «Nuevo problema», intenta resolverlo tú mismo con papel y lápiz usando el método de duplicación, y comprueba tu respuesta. Luego pulsa «Ver pasos» para ver la tabla completa y compararla con el cálculo moderno.</p>
+    <h2><span class="glyph">📜</span> <span data-i18n="practMulH"></span></h2>
+    <p data-i18n="practMulP"></p>
     <div class="practice-box">
       <div class="op-display" id="mulDisplay">? × ?</div>
       <div class="answer-row">
-        <label for="mulAnswer">Tu resultado:</label>
+        <label for="mulAnswer" data-i18n="yourResult"></label>
         <input type="number" id="mulAnswer" placeholder="—">
-        <button onclick="checkMul()">Comprobar</button>
+        <button onclick="checkMul()" data-i18n="check"></button>
       </div>
       <div class="feedback" id="mulFeedback"></div>
       <div class="btn-row">
-        <button class="secondary" onclick="newMul()">🔄 Nuevo problema</button>
-        <button class="secondary" onclick="revealMul()">👁 Ver pasos egipcios</button>
+        <button class="secondary" onclick="newMul()" data-i18n="newProblem"></button>
+        <button class="secondary" onclick="revealMul()" data-i18n="showSteps"></button>
       </div>
       <div class="steps-area hidden" id="mulSteps"></div>
     </div>
@@ -186,28 +194,166 @@
 
   <!-- ================= PRÁCTICA: DIVISIÓN ================= -->
   <section>
-    <h2><span class="glyph">📜</span> Practica: división egipcia</h2>
-    <p>Estos problemas siempre tienen un resultado exacto (sin resto), tal como los resolvían los escribas. Intenta resolverlo con duplicaciones antes de comprobar.</p>
+    <h2><span class="glyph">📜</span> <span data-i18n="practDivH"></span></h2>
+    <p data-i18n="practDivP"></p>
     <div class="practice-box">
       <div class="op-display" id="divDisplay">? ÷ ?</div>
       <div class="answer-row">
-        <label for="divAnswer">Tu resultado:</label>
+        <label for="divAnswer" data-i18n="yourResult"></label>
         <input type="number" id="divAnswer" placeholder="—">
-        <button onclick="checkDiv()">Comprobar</button>
+        <button onclick="checkDiv()" data-i18n="check"></button>
       </div>
       <div class="feedback" id="divFeedback"></div>
       <div class="btn-row">
-        <button class="secondary" onclick="newDiv()">🔄 Nuevo problema</button>
-        <button class="secondary" onclick="revealDiv()">👁 Ver pasos egipcios</button>
+        <button class="secondary" onclick="newDiv()" data-i18n="newProblem"></button>
+        <button class="secondary" onclick="revealDiv()" data-i18n="showSteps"></button>
       </div>
       <div class="steps-area hidden" id="divSteps"></div>
     </div>
   </section>
 
-  <footer>Tesoro del Nilo · Cámara de cálculos · <a href="DOC-20260925-WA0002.htm">Volver a la aventura principal</a></footer>
+  <footer><span data-i18n="footer"></span> · <a href="DOC-20260925-WA0002.htm" id="backLink" data-i18n="back"></a></footer>
 </div>
 
 <script>
+// ---- idiomas ----
+const I18N = {
+  es: {
+    title: 'Multiplicación y división del Antiguo Egipto',
+    h1: 'Multiplicación y división del Antiguo Egipto',
+    subtitle: 'El método de la duplicación (doblar una y otra vez) — resuelto paso a paso y comparado con el cálculo moderno',
+    mulH: 'Cómo multiplicaban los egipcios',
+    mulP: 'Los escribas egipcios no memorizaban tablas de multiplicar como hoy. En su lugar usaban un truco muy elegante: <b>la duplicación</b>. Solo necesitaban saber sumar y doblar (multiplicar por 2) para poder multiplicar dos números cualesquiera.',
+    stepsTitle: 'Pasos del método:',
+    mulS1: 'Se abren dos columnas. La izquierda empieza en <b>1</b>, la derecha empieza en el primer número (el que se va a duplicar).',
+    mulS2: 'Cada fila se obtiene <b>doblando</b> la fila anterior (×2 en ambas columnas), hasta que el valor de la izquierda ya no pueda usarse sin pasarse del segundo número.',
+    mulS3: 'Se buscan las filas de la izquierda que, sumadas, dan exactamente el segundo número (esto es simplemente escribir ese número en base 2).',
+    mulS4: 'Se suman los valores de la <b>derecha</b> de esas filas marcadas: ese es el resultado.',
+    exMul: 'Ejemplo resuelto: 13 × 12',
+    thLeft: 'Izquierda', thRight13: 'Derecha (13 duplicado)', thRight8: 'Derecha (8 duplicado)', thUsed: '¿Se usa?',
+    partOf12: '✔ (parte de 12)', partOf184: '✔ (parte de 184)',
+    mulResLine: '12 = 8 + 4 &nbsp;&nbsp;→&nbsp;&nbsp; sumamos las filas marcadas: 104 + 52 = <b>156</b>',
+    mulNote: 'Nota: aquí se usaron las filas 8 y 4 (que suman 12), no la fila 1 — cada problema usa la combinación de filas que sea necesaria.',
+    egMethod: 'Método egipcio', modern: 'Cálculo moderno',
+    divH: 'Cómo dividían los egipcios',
+    divP: 'La división egipcia es la misma idea de la duplicación, pero <b>al revés</b>: en vez de duplicar el número que se multiplica, se duplica el <b>divisor</b>, y se busca qué combinación de esas duplicaciones reconstruye el dividendo.',
+    divS1: 'Se abren dos columnas. La izquierda empieza en <b>1</b>, la derecha empieza en el <b>divisor</b>.',
+    divS2: 'Se duplican ambas columnas fila a fila hasta que el valor de la derecha esté a punto de superar el <b>dividendo</b>.',
+    divS3: 'Se buscan las filas de la derecha que, sumadas, dan exactamente el dividendo.',
+    divS4: 'Se suman los valores de la <b>izquierda</b> de esas filas marcadas: ese es el cociente (el resultado de la división).',
+    exDiv: 'Ejemplo resuelto: 184 ÷ 8',
+    divResLine: '184 = 128 + 32 + 8 &nbsp;&nbsp;→&nbsp;&nbsp; sumamos las filas de la izquierda: 16 + 4 + 1 = <b>23</b>',
+    divCheck: 'Comprobación: 23 × 8 = 184 ✔',
+    practMulH: 'Practica: multiplicación egipcia',
+    practMulP: 'Pulsa «Nuevo problema», intenta resolverlo tú mismo con papel y lápiz usando el método de duplicación, y comprueba tu respuesta. Luego pulsa «Ver pasos» para ver la tabla completa y compararla con el cálculo moderno.',
+    practDivH: 'Practica: división egipcia',
+    practDivP: 'Estos problemas siempre tienen un resultado exacto (sin resto), tal como los resolvían los escribas. Intenta resolverlo con duplicaciones antes de comprobar.',
+    yourResult: 'Tu resultado:', check: 'Comprobar',
+    newProblem: '🔄 Nuevo problema', showSteps: '👁 Ver pasos egipcios',
+    ok: '¡Correcto! ', bad: 'Todavía no. Pulsa "Ver pasos egipcios" si quieres una pista.',
+    rightCol: (n) => 'Derecha (' + n + ' duplicado)', sumRightTxt: 'sumamos la derecha:', sumLeftTxt: 'sumamos la izquierda:',
+    footer: 'Tesoro del Nilo · Cámara de cálculos', back: 'Volver a la aventura principal'
+  },
+  en: {
+    title: 'Multiplication and Division in Ancient Egypt',
+    h1: 'Multiplication and Division in Ancient Egypt',
+    subtitle: 'The doubling method (doubling again and again) — solved step by step and compared with modern calculation',
+    mulH: 'How the Egyptians multiplied',
+    mulP: 'Egyptian scribes did not memorize multiplication tables as we do today. Instead they used a very elegant trick: <b>doubling</b>. They only needed to know how to add and double (multiply by 2) to multiply any two numbers.',
+    stepsTitle: 'Steps of the method:',
+    mulS1: 'Two columns are drawn. The left one starts at <b>1</b>, the right one starts at the first number (the one to be doubled).',
+    mulS2: 'Each row is obtained by <b>doubling</b> the previous row (×2 in both columns), until the left value can no longer be used without going past the second number.',
+    mulS3: 'Find the rows on the left that add up exactly to the second number (this is simply writing that number in base 2).',
+    mulS4: 'Add the values in the <b>right</b> column of those marked rows: that is the result.',
+    exMul: 'Worked example: 13 × 12',
+    thLeft: 'Left', thRight13: 'Right (13 doubled)', thRight8: 'Right (8 doubled)', thUsed: 'Used?',
+    partOf12: '✔ (part of 12)', partOf184: '✔ (part of 184)',
+    mulResLine: '12 = 8 + 4 &nbsp;&nbsp;→&nbsp;&nbsp; we add the marked rows: 104 + 52 = <b>156</b>',
+    mulNote: 'Note: here rows 8 and 4 were used (they add up to 12), not row 1 — each problem uses whichever combination of rows is needed.',
+    egMethod: 'Egyptian method', modern: 'Modern calculation',
+    divH: 'How the Egyptians divided',
+    divP: 'Egyptian division uses the same idea of doubling, but <b>in reverse</b>: instead of doubling the number being multiplied, you double the <b>divisor</b> and look for the combination of those doublings that rebuilds the dividend.',
+    divS1: 'Two columns are drawn. The left one starts at <b>1</b>, the right one starts at the <b>divisor</b>.',
+    divS2: 'Both columns are doubled row by row until the right value is about to exceed the <b>dividend</b>.',
+    divS3: 'Find the rows on the right that add up exactly to the dividend.',
+    divS4: 'Add the values in the <b>left</b> column of those marked rows: that is the quotient (the result of the division).',
+    exDiv: 'Worked example: 184 ÷ 8',
+    divResLine: '184 = 128 + 32 + 8 &nbsp;&nbsp;→&nbsp;&nbsp; we add the left-hand rows: 16 + 4 + 1 = <b>23</b>',
+    divCheck: 'Check: 23 × 8 = 184 ✔',
+    practMulH: 'Practice: Egyptian multiplication',
+    practMulP: 'Press “New problem”, try to solve it yourself with pencil and paper using the doubling method, and check your answer. Then press “Show Egyptian steps” to see the full table and compare it with modern calculation.',
+    practDivH: 'Practice: Egyptian division',
+    practDivP: 'These problems always have an exact result (no remainder), just as the scribes solved them. Try to solve it with doublings before checking.',
+    yourResult: 'Your result:', check: 'Check',
+    newProblem: '🔄 New problem', showSteps: '👁 Show Egyptian steps',
+    ok: 'Correct! ', bad: 'Not yet. Press “Show Egyptian steps” if you want a hint.',
+    rightCol: (n) => 'Right (' + n + ' doubled)', sumRightTxt: 'we add the right column:', sumLeftTxt: 'we add the left column:',
+    footer: 'Treasure of the Nile · Chamber of Calculations', back: 'Back to the main adventure'
+  },
+  ru: {
+    title: 'Умножение и деление в Древнем Египте',
+    h1: 'Умножение и деление в Древнем Египте',
+    subtitle: 'Метод удвоения (удваивать снова и снова) — решение по шагам и сравнение с современным вычислением',
+    mulH: 'Как умножали египтяне',
+    mulP: 'Египетские писцы не заучивали таблицу умножения, как сегодня. Вместо этого они использовали очень изящный приём: <b>удвоение</b>. Им нужно было уметь только складывать и удваивать (умножать на 2), чтобы перемножить любые два числа.',
+    stepsTitle: 'Шаги метода:',
+    mulS1: 'Рисуют два столбца. Левый начинается с <b>1</b>, правый — с первого числа (того, которое будут удваивать).',
+    mulS2: 'Каждая строка получается <b>удвоением</b> предыдущей (×2 в обоих столбцах), пока значение слева нельзя использовать, не превысив второе число.',
+    mulS3: 'Находят строки слева, сумма которых равна второму числу (это просто запись числа в двоичной системе).',
+    mulS4: 'Складывают значения <b>правого</b> столбца у отмеченных строк: это и есть результат.',
+    exMul: 'Пример решения: 13 × 12',
+    thLeft: 'Слева', thRight13: 'Справа (13 удвоено)', thRight8: 'Справа (8 удвоено)', thUsed: 'Используется?',
+    partOf12: '✔ (часть 12)', partOf184: '✔ (часть 184)',
+    mulResLine: '12 = 8 + 4 &nbsp;&nbsp;→&nbsp;&nbsp; складываем отмеченные строки: 104 + 52 = <b>156</b>',
+    mulNote: 'Примечание: здесь использованы строки 8 и 4 (в сумме 12), а не строка 1 — в каждой задаче берётся нужная комбинация строк.',
+    egMethod: 'Египетский метод', modern: 'Современное вычисление',
+    divH: 'Как делили египтяне',
+    divP: 'Египетское деление — та же идея удвоения, но <b>наоборот</b>: вместо удвоения умножаемого числа удваивают <b>делитель</b> и ищут, какая комбинация удвоений даёт делимое.',
+    divS1: 'Рисуют два столбца. Левый начинается с <b>1</b>, правый — с <b>делителя</b>.',
+    divS2: 'Оба столбца удваивают строка за строкой, пока значение справа не готово превысить <b>делимое</b>.',
+    divS3: 'Находят строки справа, сумма которых в точности равна делимому.',
+    divS4: 'Складывают значения <b>левого</b> столбца у отмеченных строк: это частное (результат деления).',
+    exDiv: 'Пример решения: 184 ÷ 8',
+    divResLine: '184 = 128 + 32 + 8 &nbsp;&nbsp;→&nbsp;&nbsp; складываем левые значения: 16 + 4 + 1 = <b>23</b>',
+    divCheck: 'Проверка: 23 × 8 = 184 ✔',
+    practMulH: 'Практика: египетское умножение',
+    practMulP: 'Нажми «Новая задача», попробуй решить её сам на бумаге методом удвоения и проверь ответ. Затем нажми «Показать шаги», чтобы увидеть полную таблицу и сравнить её с современным вычислением.',
+    practDivH: 'Практика: египетское деление',
+    practDivP: 'У этих задач всегда точный результат (без остатка), как их решали писцы. Попробуй решить с помощью удвоений, прежде чем проверять.',
+    yourResult: 'Твой ответ:', check: 'Проверить',
+    newProblem: '🔄 Новая задача', showSteps: '👁 Показать египетские шаги',
+    ok: 'Верно! ', bad: 'Пока нет. Нажми «Показать египетские шаги», если нужна подсказка.',
+    rightCol: (n) => 'Справа (' + n + ' удвоено)', sumRightTxt: 'складываем правый столбец:', sumLeftTxt: 'складываем левый столбец:',
+    footer: 'Сокровище Нила · Палата вычислений', back: 'Вернуться к основному приключению'
+  }
+};
+let LANG = 'es';
+(function initLang() {
+  let l = null;
+  try { l = new URLSearchParams(location.search).get('lang') || localStorage.getItem('egypt-lang'); } catch (e) {}
+  if (!l || !I18N[l]) l = (navigator.language || 'es').slice(0, 2).toLowerCase();
+  LANG = I18N[l] ? l : 'es';
+})();
+function tr(k) { return I18N[LANG][k]; }
+function applyLang() {
+  document.documentElement.lang = LANG;
+  document.title = tr('title');
+  document.querySelectorAll('[data-i18n]').forEach(el => { el.innerHTML = tr(el.dataset.i18n); });
+  document.querySelectorAll('.langbar button').forEach(b => b.classList.toggle('active', b.dataset.lang === LANG));
+  document.getElementById('backLink').href = 'DOC-20260925-WA0002.htm?lang=' + LANG;
+  ['mul', 'div'].forEach(p => {
+    document.getElementById(p + 'Feedback').textContent = '';
+    document.getElementById(p + 'Feedback').className = 'feedback';
+  });
+  if (!document.getElementById('mulSteps').classList.contains('hidden')) revealMul();
+  if (!document.getElementById('divSteps').classList.contains('hidden')) revealDiv();
+}
+document.querySelectorAll('.langbar button').forEach(b => b.addEventListener('click', () => {
+  LANG = b.dataset.lang;
+  try { localStorage.setItem('egypt-lang', LANG); } catch (e) {}
+  applyLang();
+}));
+
 // ---- utilidades de duplicación egipcia ----
 function buildMultiplication(a, b) {
   // a: se duplica; b: se descompone en potencias de 2
@@ -254,7 +400,7 @@ function buildDivision(dividend, divisor) {
 
 function renderTable(rows, marked, leftLabel, rightLabel) {
   const markedSet = new Set(marked.map(r => r.left));
-  let html = '<table class="duplication"><thead><tr><th>' + leftLabel + '</th><th>' + rightLabel + '</th><th>¿Se usa?</th></tr></thead><tbody>';
+  let html = '<table class="duplication"><thead><tr><th>' + leftLabel + '</th><th>' + rightLabel + '</th><th>' + tr('thUsed') + '</th></tr></thead><tbody>';
   for (const r of rows) {
     const isMarked = markedSet.has(r.left);
     html += '<tr' + (isMarked ? ' class="marked"' : '') + '><td>' + r.left + '</td><td>' + r.right + '</td><td>' + (isMarked ? '✔' : '—') + '</td></tr>';
@@ -281,10 +427,10 @@ function checkMul() {
   const val = Number(document.getElementById('mulAnswer').value);
   const fb = document.getElementById('mulFeedback');
   if (val === mulResult) {
-    fb.textContent = '¡Correcto! ' + mulA + ' × ' + mulB + ' = ' + mulResult;
+    fb.textContent = tr('ok') + mulA + ' × ' + mulB + ' = ' + mulResult;
     fb.className = 'feedback ok';
   } else {
-    fb.textContent = 'Todavía no. Pulsa "Ver pasos egipcios" si quieres una pista.';
+    fb.textContent = tr('bad');
     fb.className = 'feedback bad';
   }
 }
@@ -293,11 +439,11 @@ function revealMul() {
   const sumLeft = mulData.marked.map(r => r.left).join(' + ');
   const sumRight = mulData.marked.map(r => r.right).join(' + ');
   area.innerHTML =
-    renderTable(mulData.rows, mulData.marked, 'Izquierda', 'Derecha (' + mulA + ' duplicado)') +
-    '<div class="result-line">' + mulB + ' = ' + sumLeft + ' &nbsp;→&nbsp; sumamos la derecha: ' + sumRight + ' = <b>' + mulData.total + '</b></div>' +
+    renderTable(mulData.rows, mulData.marked, tr('thLeft'), tr('rightCol')(mulA)) +
+    '<div class="result-line">' + mulB + ' = ' + sumLeft + ' &nbsp;→&nbsp; ' + tr('sumRightTxt') + ' ' + sumRight + ' = <b>' + mulData.total + '</b></div>' +
     '<div class="compare">' +
-      '<div class="card"><b>Método egipcio</b>' + sumRight + ' = ' + mulData.total + '</div>' +
-      '<div class="card"><b>Cálculo moderno</b>' + mulA + ' × ' + mulB + ' = ' + mulResult + '</div>' +
+      '<div class="card"><b>' + tr('egMethod') + '</b>' + sumRight + ' = ' + mulData.total + '</div>' +
+      '<div class="card"><b>' + tr('modern') + '</b>' + mulA + ' × ' + mulB + ' = ' + mulResult + '</div>' +
     '</div>';
   area.classList.remove('hidden');
 }
@@ -321,10 +467,10 @@ function checkDiv() {
   const val = Number(document.getElementById('divAnswer').value);
   const fb = document.getElementById('divFeedback');
   if (val === divResult) {
-    fb.textContent = '¡Correcto! ' + divDividend + ' ÷ ' + divDivisor + ' = ' + divResult;
+    fb.textContent = tr('ok') + divDividend + ' ÷ ' + divDivisor + ' = ' + divResult;
     fb.className = 'feedback ok';
   } else {
-    fb.textContent = 'Todavía no. Pulsa "Ver pasos egipcios" si quieres una pista.';
+    fb.textContent = tr('bad');
     fb.className = 'feedback bad';
   }
 }
@@ -333,17 +479,18 @@ function revealDiv() {
   const sumRight = divData.marked.map(r => r.right).join(' + ');
   const sumLeft = divData.marked.map(r => r.left).join(' + ');
   area.innerHTML =
-    renderTable(divData.rows, divData.marked, 'Izquierda', 'Derecha (' + divDivisor + ' duplicado)') +
-    '<div class="result-line">' + divDividend + ' = ' + sumRight + ' &nbsp;→&nbsp; sumamos la izquierda: ' + sumLeft + ' = <b>' + divData.total + '</b></div>' +
+    renderTable(divData.rows, divData.marked, tr('thLeft'), tr('rightCol')(divDivisor)) +
+    '<div class="result-line">' + divDividend + ' = ' + sumRight + ' &nbsp;→&nbsp; ' + tr('sumLeftTxt') + ' ' + sumLeft + ' = <b>' + divData.total + '</b></div>' +
     '<div class="compare">' +
-      '<div class="card"><b>Método egipcio</b>' + sumLeft + ' = ' + divData.total + '</div>' +
-      '<div class="card"><b>Cálculo moderno</b>' + divDividend + ' ÷ ' + divDivisor + ' = ' + divResult + '</div>' +
+      '<div class="card"><b>' + tr('egMethod') + '</b>' + sumLeft + ' = ' + divData.total + '</div>' +
+      '<div class="card"><b>' + tr('modern') + '</b>' + divDividend + ' ÷ ' + divDivisor + ' = ' + divResult + '</div>' +
     '</div>';
   area.classList.remove('hidden');
 }
 
 newMul();
 newDiv();
+applyLang();
 </script>
 </body>
 </html>
